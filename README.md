@@ -1,3 +1,3 @@
 # Miniproyecto1
 Realización de un CRUD
-# sofia castillo giraldo
+# Sofia_Castillo_Giraldo
