@@ -1,19 +1,22 @@
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
     
     static Candidato candidato = new Candidato();
     static Scanner scanner = new Scanner(System.in);
+    static ArrayList<Object> inscritos = new ArrayList<Object>();
     
     public static void insertar(){
+
+        
 
         candidato.setNombre();
         candidato.setCedula();
         candidato.setCiudad();   
         boolean validacion = false;
-        
         CiudadOrigen[] co = CiudadOrigen.values();
-        
+
         for(int i=0; i<co.length;i++){
             if(candidato.getCiudad().equals(co[i].toString())){
                 validacion = true;
@@ -22,9 +25,22 @@ public class App {
         }if(validacion == false){
                 System.out.println("Valido solo para ciudades del Valle del Cauca");
                 insertar();
-            }
+        }
+        inscritos.add(candidato);
     }
 
+    public static void actualizar(){
+
+        //System.out.println("Que candidato desea actualizar: ");
+        //String resp = scanner.nextLine();
+
+        for(int i=0; i<inscritos.size();i++){
+
+            System.out.println(i);
+        }
+
+
+    }
     
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
@@ -50,7 +66,7 @@ public class App {
             switch (opcion) {
 
                 case 1: insertar();break;
-                case 2: break;
+                case 2: actualizar();break;
                 case 3: break;
                 case 4: break;
                 case 5: break;
