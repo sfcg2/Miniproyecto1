@@ -1,16 +1,46 @@
-public abstract class Ciudadano {
+import java.util.Scanner;
+
+public class Ciudadano {
 
     private String nombre;
     private String cedula;
-    private CiudadOrigen ciudad;
+    private String ciudad;
+    Scanner scanner = new Scanner(System.in);
 
-    public Ciudadano(String nombre,String cedula, CiudadOrigen ciudad){
+    public Ciudadano(){};/*(String nombre,String cedula, CiudadOrigen ciudad){
         this.nombre = nombre;
         this.cedula = cedula;
         this.ciudad = ciudad;
+    }*/
+    public String nombre (){
+        return nombre;
     }
-    public abstract void Nombre(String nombre); 
-    public abstract void Cedula(String cedula);
-    public abstract void Ciudad(CiudadOrigen ciudad);
+    public void setNombre() {
+
+        System.out.print("Nombre: ");
+        nombre = scanner.nextLine();
+    }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula() {
+        System.out.print("Cedula: ");
+        cedula = scanner.nextLine();
+    }
+
+    public String getCiudad() {
+        return ciudad;
+    }
+
+    public void setCiudad() {
+        
+        System.out.print("Ciudad: ");
+        ciudad = scanner.nextLine();
+       
+
+    }
+    
   
 }
