@@ -1,10 +1,13 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class App {
     
     static ArrayList<Candidato> inscritos = new ArrayList<Candidato>();
     static Scanner scanner = new Scanner(System.in);
+    //static ArrayList <String>promesasC = new ArrayList<String>();
+    
 
     public static void insertar(){
         
@@ -25,35 +28,65 @@ public class App {
             System.out.println("Valido solo para ciudades del Valle del Cauca");
             insertar();
         }
+
         candidato.setIdeologia();
         boolean validacion1 = false;
-        if(candidato.getIdeologia().equalsIgnoreCase("DERECHA") || candidato.getIdeologia().toUpperCase().equals("IZQUIERDA")){
-            
+        if(candidato.getIdeologia().equalsIgnoreCase("DERECHA")){
+
             candidato.setPartido_P();
         
-            for (PartidoPolitico pp : PartidoPolitico.values()){
+            for (PartidoDer pd : PartidoDer.values()){
 
-                if(candidato.getPartido_P().toUpperCase().equals(pp.name().toUpperCase())){
+                if(candidato.getPartido_P().toUpperCase().equals(pd.name().toUpperCase())){
                     validacion1 = true;
-                    inscritos.add(candidato);
+                    System.out.print("¿Cuantas Promesas de Campana tiene?: ");
+                    int n = scanner.nextInt();
+                    
+                    for(int i = 0; i<n; i++){
+                        candidato.setPromesas();
+
+                        //System.out.print("Promesa #" + (i+1) + " : ");
+                        //String resp = scanner.nextLine();
+                        //promesasC.add(resp);
+                        
+                    }inscritos.add(candidato);
                 }
             }if(validacion1 == false){
                 System.out.println("Partido no Valido");
                 insertar();
             }
+                
+        }else if(candidato.getIdeologia().toUpperCase().equalsIgnoreCase("IZQUIERDA")){
+
+            candidato.setPartido_P();
+        
+            for (PartidoIzq pz : PartidoIzq.values()){
+
+                if(candidato.getPartido_P().toUpperCase().equals(pz.name().toUpperCase())){
+                    validacion1 = true;
+                    System.out.print("¿Cuantas Promesas de Campana tiene?: ");
+                    int n = scanner.nextInt();
+        
+                    for(int i = 0; i<n; i++){
+
+                        candidato.setPromesas();
+                        
+                        //System.out.print("Promesa #" + (i+1) + " : ");
+                        //String resp = scanner.nextLine();
+                        //promesasC.add(resp);
+                        
+                    }inscritos.add(candidato);
+                    
+                }
+            }if(validacion1 == false){
+                System.out.println("Partido no Valido");
+                insertar();
+            }
+
         }else{
             System.out.println("Ideologias Validas -> Derecha o Izquierda");
             insertar();
         }
-
-        candidato.setNum_promesas();
-        String[] promesasC = new String[candidato.getNum_promesas()];
-
-        for(String pr : promesasC){
-            System.out.println();
-
-        }
-
     }
 
     public static void actualizar(){
@@ -62,9 +95,14 @@ public class App {
         //String resp = scanner.nextLine();
 
         for(int i=0; i<inscritos.size();i++){
-            System.out.println("\nCandidat@ #" + (i+1));
+            System.out.println("\nCANDIDAT@ #" + (i+1));
             System.out.println(inscritos.get(i));
-        }
+        }/* 
+        System.out.println("\nPROMESAS DE CAMPANA");
+        for(int i = 0; i<promesasC.size(); i++){
+            System.out.print("Promesa #" + (i+1) + " : ");
+            System.out.println(promesasC.get(i));
+        }*/
 
 
     }
