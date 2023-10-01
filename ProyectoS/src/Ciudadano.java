@@ -12,7 +12,7 @@ public class Ciudadano {
         this.cedula = cedula;
         this.ciudad = ciudad;
     }*/
-    public String nombre (){
+    public String getNombre (){
         return nombre;
     }
     public void setNombre() {
@@ -42,5 +42,7 @@ public class Ciudadano {
 
     }
     
-  
+
+    
+    
 }

@@ -1,7 +1,8 @@
 public class Candidato extends Ciudadano {
 
     private String ideologia; //-> derecha (v) e izquierda(f)
-    private PartidoPolitico partido_P;
+    private String partido_P;
+    
     
     public Candidato(){}; /*(String ideologia, PartidoPolitico partido_P, 
     String nombre, String cedula, CiudadOrigen ciudad){
@@ -12,48 +13,49 @@ public class Candidato extends Ciudadano {
     }*/
    
     public String getIdeologia() {
-        return ideologia;
+        return ideologia.toUpperCase();
     }
     public void setIdeologia() {
-        this.ideologia = ideologia;
+        System.out.print("Ideologia: ");
+        ideologia = scanner.nextLine();
     }
-    public PartidoPolitico getPartido_P() {
-        return partido_P;
+    public String getPartido_P() {
+        return partido_P.toUpperCase();
     }
     public void setPartido_P() {
-        this.partido_P = partido_P;
+        System.out.print("Partido Politico: ");
+        partido_P = scanner.nextLine();
     }
-
     @Override
     public String getCedula() {
         return super.getCedula();
     }
-
     @Override
     public String getCiudad() {
         return super.getCiudad();
     }
-
     @Override
-    public String nombre() {
-        return super.nombre();
+    public String getNombre() {
+        return super.getNombre();
     }
-
     @Override
     public void setCedula() {
         super.setCedula();
     }
-
     @Override
     public void setCiudad() {
         super.setCiudad();
     }
-
     @Override
     public void setNombre() {
         super.setNombre();
     }
-
+    @Override
+    public String toString() {
+        return "\nNombre: " + getNombre() + "\nCedula: " + getCedula() + "\nCiudad:" + getCiudad()
+        + "\nIdeologia: " + getIdeologia() + "\nPartido Politico: " + getPartido_P();
+    }
+    
     
     
 }

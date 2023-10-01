@@ -1,4 +1,4 @@
 public enum CiudadOrigen {
-    Andalucía, Bugalagrande , El_Cerrito, Ginebra, Guacarí, Buga, Riofrío, Trujillo,
-    Calima, El_Darién, Restrepo, San_Pedro, Tulua, Yotoco,
+    Andalucia, Bugalagrande, ElCerrito, Ginebra, Guacari, Buga, Riofrio, Trujillo,
+    Calima, ElDarien, Restrepo, SanPedro, Tulua, Yotoco,
     }

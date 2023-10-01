@@ -3,30 +3,57 @@ import java.util.Scanner;
 
 public class App {
     
-    static Candidato candidato = new Candidato();
+    static ArrayList<Candidato> inscritos = new ArrayList<Candidato>();
     static Scanner scanner = new Scanner(System.in);
-    static ArrayList<Object> inscritos = new ArrayList<Object>();
-    
+
     public static void insertar(){
-
         
-
+        Candidato candidato = new Candidato();
+  
         candidato.setNombre();
         candidato.setCedula();
-        candidato.setCiudad();   
+        candidato.setCiudad(); 
+        
         boolean validacion = false;
-        CiudadOrigen[] co = CiudadOrigen.values();
 
-        for(int i=0; i<co.length;i++){
-            if(candidato.getCiudad().equals(co[i].toString())){
+        for (CiudadOrigen cor : CiudadOrigen.values()){
+
+            if(candidato.getCiudad().toUpperCase().equals(cor.name().toUpperCase())){
                 validacion = true;
-                System.out.println("hola");
             }
         }if(validacion == false){
-                System.out.println("Valido solo para ciudades del Valle del Cauca");
-                insertar();
+            System.out.println("Valido solo para ciudades del Valle del Cauca");
+            insertar();
         }
-        inscritos.add(candidato);
+        candidato.setIdeologia();
+        boolean validacion1 = false;
+        if(candidato.getIdeologia().equalsIgnoreCase("DERECHA") || candidato.getIdeologia().toUpperCase().equals("IZQUIERDA")){
+            
+            candidato.setPartido_P();
+        
+            for (PartidoPolitico pp : PartidoPolitico.values()){
+
+                if(candidato.getPartido_P().toUpperCase().equals(pp.name().toUpperCase())){
+                    validacion1 = true;
+                    inscritos.add(candidato);
+                }
+            }if(validacion1 == false){
+                System.out.println("Partido no Valido");
+                insertar();
+            }
+        }else{
+            System.out.println("Ideologias Validas -> Derecha o Izquierda");
+            insertar();
+        }
+
+        candidato.setNum_promesas();
+        String[] promesasC = new String[candidato.getNum_promesas()];
+
+        for(String pr : promesasC){
+            System.out.println();
+
+        }
+
     }
 
     public static void actualizar(){
@@ -35,8 +62,8 @@ public class App {
         //String resp = scanner.nextLine();
 
         for(int i=0; i<inscritos.size();i++){
-
-            System.out.println(i);
+            System.out.println("\nCandidat@ #" + (i+1));
+            System.out.println(inscritos.get(i));
         }
 
 
