@@ -4,12 +4,12 @@ import java.util.Scanner;
 
 public class App {
     
-    static ArrayList<Candidato> inscritos = new ArrayList<Candidato>();
-    static Scanner scanner = new Scanner(System.in);
-    //static ArrayList <String>promesasC = new ArrayList<String>();
+    ArrayList<Candidato> inscritos = new ArrayList<Candidato>();
+    Scanner scanner = new Scanner(System.in);
+    ArrayList <String>promesasC = new ArrayList<String>();
     
 
-    public static void insertar(){
+    public void insertar(){
         
         Candidato candidato = new Candidato();
         candidato.setNombre();
@@ -41,6 +41,7 @@ public class App {
                 if(candidato.getPartido_P().toUpperCase().equals(pd.name().toUpperCase())){
                     validacion1 = true;
                     candidato.setPromesas();
+                    
                     inscritos.add(candidato);
                     break;
                 }
@@ -73,7 +74,12 @@ public class App {
         }
     }
 
-    public static void actualizar(){
+    public void actualizar(){
+        
+        for(int i=0; i<inscritos.size();i++){
+            System.out.println("\nCANDIDAT@ #" + (i+1));
+            System.out.println(inscritos.get(i));
+        }
         
         boolean r = false;
         Candidato cc = new Candidato();
@@ -85,7 +91,10 @@ public class App {
                 r = true;
                 inscritos.remove(c1);
             }
-        }if(r == false){
+
+        }insertar();
+        
+        if(r == false){
                 System.out.println("Candidato no Encontrado, vuelva a ingresar el nombre");
                 return;
         }
@@ -100,37 +109,39 @@ public class App {
     
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
-        Scanner scanner = new Scanner(System.in);
-        //Menu    
-        
-    
-        System.out.println( "                         - - - - E L E C C I O N E S - - - - \n");
-
-        int opcion;
-        do{
-            System.out.println("\n1. Insertar Candidato");
-            System.out.println("2. Actualizar Candidato");
-            System.out.println("3. Eliminar Candidato");
-            System.out.println("4. Buscar Candidato");
-            System.out.println("5. Lista de Candidatos\n");
-
-            System.out.print("Para incribir/modificar un candidato elija una opcion: ");
-            opcion = scanner.nextInt();
-            System.out.println();
+        try (Scanner scanner = new Scanner(System.in)) {
+            App obj = new App();
+            //Menu    
             
-        
-            switch (opcion) {
+   
+            System.out.println( "                         - - - - E L E C C I O N E S - - - - \n");
 
-                case 1: insertar();break;
-                case 2: actualizar();break;
-                case 3: break;
-                case 4: break;
-                case 5: break;
-                default:
-                    System.out.println("Opcion No Valida");
-                    break;
-            }
-        }while(opcion!=0);
+            int opcion;
+            do{
+                System.out.println("\n1. Insertar Candidato");
+                System.out.println("2. Actualizar Candidato");
+                System.out.println("3. Eliminar Candidato");
+                System.out.println("4. Buscar Candidato");
+                System.out.println("5. Lista de Candidatos\n");
+
+                System.out.print("Para incribir/modificar un candidato elija una opcion: ");
+                opcion = scanner.nextInt();
+                System.out.println();
+                
+            
+                switch (opcion) {
+
+                    case 1: obj.insertar();break;
+                    case 2: obj.actualizar();break;
+                    case 3: break;
+                    case 4: break;
+                    case 5: break;
+                    default:
+                        System.out.println("Opcion No Valida");
+                        break;
+                }
+            }while(opcion!=0);
+        }
     }
 
     
