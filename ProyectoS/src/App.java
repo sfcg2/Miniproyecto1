@@ -1,112 +1,123 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-
 public class App {
     
     ArrayList<Candidato> inscritos = new ArrayList<Candidato>();
     Scanner scanner = new Scanner(System.in);
-    ArrayList <String>promesasC = new ArrayList<String>();
-    
 
     public void insertar(){
-        
+
+        System.out.println(inscritos.size());
         Candidato candidato = new Candidato();
+
+        boolean val = false;
         candidato.setNombre();
         candidato.setCedula();
-        candidato.setCiudad(); 
         
-        boolean validacion = false;
-
-        for (CiudadOrigen cor : CiudadOrigen.values()){
-
-            if(candidato.getCiudad().toUpperCase().equals(cor.name().toUpperCase())){
-                validacion = true;
-                break;
+        for(int i = 0; i<inscritos.size(); i++){ 
+            
+            if(candidato.getCedula().equals(inscritos.get(i).getCedula())){
+                val = true;
+                System.out.println("Candidato Existente");
+                System.out.println("Ingrese los datos nuevamente");
+                insertar();
             }
-        }if(validacion == false){
-            System.out.println("Valido solo para ciudades del Valle del Cauca");
-            System.out.println("Vuelva a Insertar al Candidato");
-            return;
-        }
+        }if(val == false){      
+            boolean val1 = false;
 
-        candidato.setIdeologia();
-        boolean validacion1 = false;
-        if(candidato.getIdeologia().equalsIgnoreCase("DERECHA")){
+            while(val1 == false){
+                candidato.setCiudad();
 
-            candidato.setPartido_P();
+                for (CiudadOrigen cor : CiudadOrigen.values()){
+
+                    if(candidato.getCiudad().equals(cor.name().toUpperCase())){
+                        val1 = true;
+                        break;
+                    }
+                }if(val1 == false){
+                    System.out.println("\nValido solo para Ciudades del Valle del Cauca");
+                    System.out.println("Vuelva a ingresar la ciudad");
+                }
+            }
+
+            boolean val3 = false;
+            while(val3 == false){
+
+                candidato.setIdeologia();
         
-            for (PartidoDer pd : PartidoDer.values()){
+                if(candidato.getIdeologia().equalsIgnoreCase("DERECHA")){
+                    //val3 = true;
+                    candidato.setPartido_P();
+            
+                    for (PartidoDer pd : PartidoDer.values()){
 
-                if(candidato.getPartido_P().toUpperCase().equals(pd.name().toUpperCase())){
-                    validacion1 = true;
-                    candidato.setPromesas();
+                        if(candidato.getPartido_P().equals(pd.name().toUpperCase())){
+                            val3 = true;
+                            candidato.setPromesas();
+                            inscritos.add(candidato);
+                            break;
+                        }
+                    }if(val3 == false){
+                        System.out.println("\nPartido no Valido");
+                        System.out.println("Vuelva a ingresar ideologia + partido");
+                    }             
+                }else if(candidato.getIdeologia().equalsIgnoreCase("IZQUIERDA")){
+
+                    candidato.setPartido_P();
+
+                    for (PartidoIzq pz : PartidoIzq.values()){
+
+                        if(candidato.getPartido_P().toUpperCase().equals(pz.name().toUpperCase())){
+                            val3 = true;
+                            candidato.setPromesas();
+                            inscritos.add(candidato);
+                            break;  
+                        }
+                    }if(val3 == false){
+                        System.out.println("\nPartido no Valido");
+                        System.out.println("Vuelva a ingresar ideologia + partido");
+                    }
+
+                }else{
+                    System.out.println("\nIdeologias Validas -> Derecha o Izquierda");
                     
-                    inscritos.add(candidato);
-                    break;
                 }
-            }if(validacion1 == false){
-                System.out.println("Partido no Valido");
-                System.out.println("Vuelva a Insertar al Candidato");
-                return;
             }
-                
-        }else if(candidato.getIdeologia().equalsIgnoreCase("IZQUIERDA")){
-
-            candidato.setPartido_P();
-
-            for (PartidoIzq pz : PartidoIzq.values()){
-
-                if(candidato.getPartido_P().toUpperCase().equals(pz.name().toUpperCase())){
-                    validacion1 = true;
-                    candidato.setPromesas();
-                    inscritos.add(candidato);
-                    break;  
-                }
-            }if(validacion1 == false){
-                System.out.println("Partido no Valido");
-                System.out.println("Vuelva a Insertar al Candidato");
-                return;
-            }
-        }else{
-            System.out.println("Ideologias Validas -> Derecha o Izquierda");
-            insertar();
         }
     }
 
     public void actualizar(){
         
         for(int i=0; i<inscritos.size();i++){
-            System.out.println("\nCANDIDAT@ #" + (i+1));
+            System.out.println("\nCANDIDATO #" + (i+1));
             System.out.println(inscritos.get(i));
         }
         
-        boolean r = false;
+        boolean val4 = false;
         Candidato cc = new Candidato();
         System.out.print("Que candidato desea actualizar -> ");
-        cc.setNombre();
-        for(Candidato c1 : inscritos){
+        cc.setCedula();
+        for(int i = 0; i<inscritos.size(); i++){ 
             
-            if(cc.getNombre().equalsIgnoreCase(c1.getNombre())){
-                r = true;
-                inscritos.remove(c1);
+            if(cc.getCedula().equalsIgnoreCase(inscritos.get(i).getCedula())){
+                val4 = true;
+                inscritos.remove(i);
+                insertar();
             }
 
-        }insertar();
-        
-        if(r == false){
-                System.out.println("Candidato no Encontrado, vuelva a ingresar el nombre");
+        }if(val4 == false){
+                System.out.println("Candidato NO encontrado, vuelva a ingresar la cedula");
                 return;
         }
+
         for(int i=0; i<inscritos.size();i++){
-            System.out.println("\nCANDIDAT@ #" + (i+1));
+            System.out.println("\nCANDIDATO #" + (i+1));
             System.out.println(inscritos.get(i));
         } 
     }
 
 
-    
-    
     public static void main(String[] args) throws Exception {
         System.out.println("Hello, World!");
         try (Scanner scanner = new Scanner(System.in)) {
@@ -118,6 +129,9 @@ public class App {
 
             int opcion;
             do{
+                System.out.println("\nINDICACIONES");
+                System.out.println("-> Ingresar cedula sin puntos");
+                System.out.println("-> Si tiene mas de una promesa de campana, favor de ingresarlas juntas separadas con coma");
                 System.out.println("\n1. Insertar Candidato");
                 System.out.println("2. Actualizar Candidato");
                 System.out.println("3. Eliminar Candidato");

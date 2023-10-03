@@ -59,7 +59,7 @@ public class Candidato extends Ciudadano {
     }
 
     public String getPromesas() {
-        return promesas;
+        return promesas.toUpperCase();
     }
     public void setPromesas() {
         System.out.print("Promesa: ");
