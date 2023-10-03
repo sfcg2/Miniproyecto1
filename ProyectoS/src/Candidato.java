@@ -1,9 +1,9 @@
 public class Candidato extends Ciudadano {
 
-    private String ideologia; //-> derecha (v) e izquierda(f)
+    private String ideologia; 
     private String partido_P;
     private String promesas;
-    
+
     public Candidato(){}; /*(String ideologia, PartidoPolitico partido_P, 
     String nombre, String cedula, CiudadOrigen ciudad){
         super(nombre, cedula, ciudad);
@@ -68,4 +68,7 @@ public class Candidato extends Ciudadano {
   
     
     
+    
 }
+
+
