@@ -94,7 +94,7 @@ public class Insertar {
             System.out.println("\nCANDIDATO #" + (i+1));
             System.out.println(inscritos.get(i));
 
-        } //-> me devuelve la lista, y poder acceder a ella desde otras clases
+        }
     }
     public static ArrayList<Candidato> getInscritos() {
         return inscritos;

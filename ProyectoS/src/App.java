@@ -31,17 +31,15 @@ public class App {
                 Actualizar obj2 = new Actualizar();
                 Eliminar obj3 = new Eliminar();
                 Buscar obj4 = new Buscar();
-                
-                
-                
-            
+                ListaCandidatos obj5 = new ListaCandidatos();
+
                 switch (opcion) {
 
                     case 1: obj1.insertar();break;
                     case 2: obj2.actualizar();break;
                     case 3: obj3.eliminar();break;
                     case 4: obj4.buscar();break;
-                    case 5: break;
+                    case 5: obj5.listaCandidatos();break;
                     case 0: break;
                     default:
                         System.out.println("Opcion No Valida");
