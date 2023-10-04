@@ -21,7 +21,7 @@ public class App {
                     // Agrega aquí la lógica para actualizar candidato
                     break;
                 case 4:
-                    EliminarC;
+                
                     break;
                 case 5:
                     buscarCandidatoPorNombre();
@@ -37,6 +37,9 @@ public class App {
         } while (opcion != 6);
     }
 
+    private static void buscarCandidatoPorNombre() {
+    }
+
     private static void listarCandidatos() {
         System.out.println("Listado de candidatos:");
         for (Candidato candidato : candidatos) {
@@ -44,5 +47,5 @@ public class App {
         }
     }
 
-}
+} 
 
