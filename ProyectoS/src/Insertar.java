@@ -3,17 +3,17 @@ import java.util.Scanner;
 
 public class Insertar {
 
-    private ArrayList<Candidato> inscritos; //lo inicializo
+    private static ArrayList<Candidato> inscritos = new ArrayList<>(); //lo inicializo
     Scanner scanner = new Scanner(System.in);
+    
+    
 
     public Insertar(){} //constructor
 
-    public ArrayList<Candidato> insertar(){
+    public void insertar(){
         
-        inscritos = new ArrayList<>();
-
         System.out.println(inscritos.size());
-    
+        
         Candidato candidato = new Candidato();
 
         boolean val = false;
@@ -89,7 +89,15 @@ public class Insertar {
                     
                 }
             }
-        }return inscritos; //-> me devuelve la lista, y poder acceder a ella desde otras clases
+        }
+        for(int i=0; i<inscritos.size();i++){
+            System.out.println("\nCANDIDATO #" + (i+1));
+            System.out.println(inscritos.get(i));
+
+        } //-> me devuelve la lista, y poder acceder a ella desde otras clases
+    }
+    public static ArrayList<Candidato> getInscritos() {
+        return inscritos;
     }
 }
 

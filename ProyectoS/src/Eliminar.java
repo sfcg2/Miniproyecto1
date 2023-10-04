@@ -1,10 +1,10 @@
 import java.util.ArrayList;
 
-public class Actualizar extends Insertar{
+public class Eliminar {
 
-    public Actualizar(){}
+public Eliminar(){}
     
-    public void actualizar(){     
+public void eliminar(){     
         
         ArrayList<Candidato> listaC = Insertar.getInscritos();   
 
@@ -24,7 +24,7 @@ public class Actualizar extends Insertar{
             if(cc.getCedula().equalsIgnoreCase(listaC.get(i).getCedula())){
                 val4 = true;
                 listaC.remove(i);
-                insertar();
+                System.out.println("\nCandidato Eliminado Exitosamente");
             }
 
         }if(val4 == false){
