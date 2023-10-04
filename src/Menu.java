@@ -11,6 +11,7 @@ public class Menu {
         System.out.println("4. Eliminar candidato");
         System.out.println("5. Buscar candidato por nombre");
         System.out.println("6. Salir");
+        System.out.println("6. Salir");
         System.out.print("Seleccione una opción: ");
         return scanner.nextInt();
     }
