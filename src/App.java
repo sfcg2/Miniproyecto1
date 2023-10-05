@@ -18,10 +18,10 @@ public class App {
                     listarCandidatos();
                     break;
                 case 3:
-                    // Agrega aquí la lógica para actualizar candidato
+                    // Agregar aquí la lógica para actualizar candidato
                     break;
                 case 4:
-                
+                    EliminarC candi = new EliminarC();
                     break;
                 case 5:
                     buscarCandidatoPorNombre();
