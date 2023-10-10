@@ -21,7 +21,7 @@ public class App {
                     // Agregar aquí la lógica para actualizar candidato
                     break;
                 case 4:
-                    EliminarC candi = new EliminarC();
+                    // EliminarC candi = new EliminarC();
                     break;
                 case 5:
                     buscarCandidatoPorNombre();
