@@ -23,6 +23,7 @@ public class App {
                 System.out.println("4. Buscar Candidato");
                 System.out.println("5. Lista de Candidatos");
                 System.out.println("6. Votar");
+                System.out.println("7. ver votos totales");
                 System.out.println("0. No seguir haciendo CRUD");
 
                 System.out.print("candidato elija una opcion: ");
@@ -46,7 +47,10 @@ public class App {
                     case 4: obj4.buscar();break;
                     case 5: obj5.listaCandidatos();break;
                     case 6: obj6.votar();break;
+                    case 7: obj6.VotosTotales();break;
+                    
                     case 0: obj7.pMasC();obj8.ciudadestop3();break;
+
                     default:
                         System.out.println("Opcion No Valida");
                         break;

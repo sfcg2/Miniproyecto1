@@ -1,13 +1,14 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
-class Votar {
+public class Votar {
 
+    Scanner scanner = new Scanner(System.in);
     public void votar() {
 
-        try (Scanner scanner = new Scanner(System.in)) {
+        ArrayList<Candidato> listaCandidatos = Insertar.getInscritos();
 
-            ArrayList<Candidato> listaCandidatos = Insertar.getInscritos();
+        
 
             System.out.println("Número de candidatos inscritos: " + listaCandidatos.size());
 
@@ -30,10 +31,10 @@ class Votar {
                     System.out.println("Posición de candidato no válida. Intente nuevamente.");
                 }
             }
-        }
+        
     }
     
-    /* 
+    
     public void VotosTotales() {
 
         ArrayList<Candidato> listaCandidatos = Insertar.getInscritos();
@@ -56,5 +57,5 @@ class Votar {
         } else {
             System.out.println("No hay candidatos registrados o no se han registrado votos.");
         }
-    }*/
+    }
 }
