@@ -7,6 +7,7 @@ public class App {
         System.out.println("Hello, World!");
         try (Scanner scanner = new Scanner(System.in)) {
 
+
             //Menu    
             
             System.out.println( "                         - - - - E L E C C I O N E S - - - - \n");
@@ -23,7 +24,7 @@ public class App {
                 System.out.println("5. Lista de Candidatos");
                 System.out.println("0. No seguir haciendo CRUD");
 
-                System.out.print("Para incribir/modificar un candidato elija una opcion: ");
+                System.out.print("candidato elija una opcion: ");
                 opcion = scanner.nextInt();
                 System.out.println();
 
@@ -32,6 +33,7 @@ public class App {
                 Eliminar obj3 = new Eliminar();
                 Buscar obj4 = new Buscar();
                 ListaCandidatos obj5 = new ListaCandidatos();
+                
 
                 switch (opcion) {
 
@@ -46,7 +48,38 @@ public class App {
                         break;
                 }
             }while(opcion!=0);
-        }
+
+
+        int opcion2;
+
+        Votar obj6 = new Votar();
+
+        do {
+            System.out.println("\n--- VOTAR  ---");
+            System.out.println("1. Votar por un candidato");
+            System.out.println("2. Ver votos de candidatos");
+            System.out.println("0. Salir");
+            System.out.print("Seleccione una opción: ");
+            opcion2 = scanner.nextInt();
+            System.out.println();
+
+            switch (opcion2) {
+                case 1:
+                    obj6.votar();
+                    System.out.println("Volviendo al menú");
+                    break;
+                case 2:
+                    obj6.VotosTotales();
+                    break;
+                case 0:
+                    System.out.println("Saliendo del programa");
+                    break;
+                default:
+                    System.out.println("Opción no válida");
+                    break;
+            }
+
+        } while (opcion2 != 0);
     }
 }
-    
+}
