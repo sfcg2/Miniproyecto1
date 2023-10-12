@@ -1,48 +1,72 @@
-import java.util.Scanner;
-
 public class Candidato extends Ciudadano {
-    private String ideologiaP;
-    private String partidoP;
+
+    private String ideologia; 
+    private String partido_P;
     private String promesas;
 
-    public Candidato(String id, String nombre, String ciudad, String ideologiaP, String partidoP, String promesas) {
-        super(id, nombre, ciudad);
-        this.ideologiaP = ideologiaP;
-        this.partidoP = partidoP;
-        this.promesas = promesas;
+    public Candidato(){}; /*(String ideologia, PartidoPolitico partido_P, 
+    String nombre, String cedula, CiudadOrigen ciudad){
+        super(nombre, cedula, ciudad);
+        
+        this.ideologia = ideologia;
+        this.partido_P = partido_P;
+    }*/
+   
+    public String getIdeologia() {
+        return ideologia.toUpperCase();
     }
-
-    public static Candidato crearC() {
-        try (Scanner scanner = new Scanner(System.in)) {
-            System.out.print("Nombre del candidato: ");
-            String nombre = scanner.nextLine();
-
-            System.out.print("Cédula del candidato: ");
-            String id = scanner.nextLine();
-
-            System.out.print("Ciudad de origen del candidato: ");
-            String ciudad = scanner.nextLine();
-
-            System.out.print("Posición política del candidato: ");
-            String ideologiaP = scanner.nextLine();
-
-            System.out.print("Partido político del candidato: ");
-            String partidoP = scanner.nextLine();
-            
-            System.out.print("cuales son sus promesas (si son mas de una separelas co comas): ");
-            String promesas = scanner.nextLine();
-
-            return new Candidato(nombre, id, ciudad, ideologiaP, partidoP, promesas);
-        }
+    public void setIdeologia() {
+        System.out.print("Ideologia: ");
+        ideologia = scanner.nextLine();
     }
-
+    public String getPartido_P() {
+        return partido_P.toUpperCase();
+    }
+    public void setPartido_P() {
+        System.out.print("Partido Politico: ");
+        partido_P = scanner.nextLine();
+    }
+    @Override
+    public String getCedula() {
+        return super.getCedula();
+    }
+    @Override
+    public String getCiudad() {
+        return super.getCiudad().toUpperCase();
+    }
+    @Override
+    public String getNombre() {
+        return super.getNombre().toUpperCase();
+    }
+    @Override
+    public void setCedula() {
+        super.setCedula();
+    }
+    @Override
+    public void setCiudad() {
+        super.setCiudad();
+    }
+    @Override
+    public void setNombre() {
+        super.setNombre();
+    }
+    
     @Override
     public String toString() {
-        return super.toString() +
-                "\nPosición política='" + ideologiaP + '\'' +
-                ", Partido político='" + partidoP + '\'' +
-                ", Promesas de campaña=" + promesas;
+        return "\nNombre: " + getNombre() + "\nCedula: " + getCedula() + "\nCiudad: " + getCiudad()
+        + "\nIdeologia: " + getIdeologia() + "\nPartido Politico: " + getPartido_P() +"\nPromesas: " 
+        + getPromesas();
     }
+
+    public String getPromesas() {
+        return promesas.toUpperCase();
+    }
+    public void setPromesas() {
+        System.out.print("Promesa: ");
+        promesas = scanner.nextLine();
+    }
+  
+    
+    
+    
 }
-
-

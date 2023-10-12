@@ -1,51 +1,56 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Scanner;
 
 public class App {
-    private static List<Candidato> candidatos = new ArrayList<>();
 
-    public static void main(String[] args) {
-        int opcion;
+    
+    public static void main(String[] args) throws Exception {
+        System.out.println("Hello, World!");
+        try (Scanner scanner = new Scanner(System.in)) {
 
-        do {
-            opcion = Menu.mostrarM();
 
-            switch (opcion) {
-                case 1:
-                    InsertarC.insertarCandi();
-                    break;
-                case 2:
-                    listarCandidatos();
-                    break;
-                case 3:
-                    // Agregar aquí la lógica para actualizar candidato
-                    break;
-                case 4:
-                    // EliminarC candi = new EliminarC();
-                    break;
-                case 5:
-                    buscarCandidatoPorNombre();
-                    break;
-                case 6:
-                    // Salir
-                    System.out.println("Saliendo del programa.");
-                    break;
-                default:
-                    System.out.println("Opción no válida. Por favor, intente nuevamente.");
-            }
+            //Menu    
+            
+            System.out.println( "                         - - - - E L E C C I O N E S - - - - \n");
 
-        } while (opcion != 6);
-    }
+            int opcion;
+            do{
+                System.out.println("\nINDICACIONES");
+                System.out.println("-> Ingresar cedula sin puntos");
+                System.out.println("-> Si tiene mas de una promesa de campana, favor de ingresarlas juntas separadas con coma");
+                System.out.println("\n1. Insertar Candidato");
+                System.out.println("2. Actualizar Candidato");
+                System.out.println("3. Eliminar Candidato");
+                System.out.println("4. Buscar Candidato");
+                System.out.println("5. Lista de Candidatos");
+                System.out.println("6. Votar");
+                System.out.println("0. No seguir haciendo CRUD");
 
-    private static void buscarCandidatoPorNombre() {
-    }
+                System.out.print("candidato elija una opcion: ");
+                opcion = scanner.nextInt();
+                System.out.println();
 
-    private static void listarCandidatos() {
-        System.out.println("Listado de candidatos:");
-        for (Candidato candidato : candidatos) {
-            System.out.println(candidato);
+                Insertar obj1 = new Insertar();
+                Actualizar obj2 = new Actualizar();
+                Eliminar obj3 = new Eliminar();
+                Buscar obj4 = new Buscar();
+                ListaCandidatos obj5 = new ListaCandidatos();
+                Votar obj6  = new Votar();
+
+                switch (opcion) {
+
+                    case 1: obj1.insertar();break;
+                    case 2: obj2.actualizar();break;
+                    case 3: obj3.eliminar();break;
+                    case 4: obj4.buscar();break;
+                    case 5: obj5.listaCandidatos();break;
+                    case 6: obj6.votar();break;
+                    case 0: break;
+                    default:
+                        System.out.println("Opcion No Valida");
+                        break;
+                }
+            }while(opcion!=0);
         }
     }
-
-} 
-
+}
+    

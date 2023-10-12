@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 import java.util.Scanner;
 
+
 public class Insertar {
 
     private static ArrayList<Candidato> inscritos = new ArrayList<>(); //lo inicializo
@@ -102,4 +103,3 @@ public class Insertar {
 }
 
     
-

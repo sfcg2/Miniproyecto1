@@ -1,40 +1,48 @@
+import java.util.Scanner;
+
 public class Ciudadano {
-    
-    protected String id;
+
     private String nombre;
-    protected String ciudad;
-   
+    private String cedula;
+    private String ciudad;
+    Scanner scanner = new Scanner(System.in);
 
-    public Ciudadano(String id, String nombre, String ciudad) {
-        this.id = id;
+    public Ciudadano(){};/*(String nombre,String cedula, CiudadOrigen ciudad){
         this.nombre = nombre;
+        this.cedula = cedula;
         this.ciudad = ciudad;
-    }
-
-    // Getters
-    public String getId() {
-        return id;
-    }
-
-    public String getNombre() {
+    }*/
+    public String getNombre (){
         return nombre;
+    }
+    public void setNombre() {
+
+        System.out.print("Nombre: ");
+        nombre = scanner.nextLine();
+    }
+
+    public String getCedula() {
+        return cedula;
+    }
+
+    public void setCedula() {
+        System.out.print("Cedula: ");
+        cedula = scanner.nextLine();
     }
 
     public String getCiudad() {
         return ciudad;
     }
 
-    // Setters
-    public void setId(String id) {
-        this.id = id;
-    }
+    public void setCiudad() {
+        
+        System.out.print("Ciudad: ");
+        ciudad = scanner.nextLine();
+       
 
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
+    
 
-    public void setCiudad(String ciudad) {
-        this.ciudad = ciudad;
-    }
-
+    
+    
 }
