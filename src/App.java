@@ -49,28 +49,30 @@ public class App {
                 }
             }while(opcion!=0);
 
-            int opcion2;
+
+        int opcion2;
+
+        Votar obj6 = new Votar();
 
         do {
-            System.out.println("\n--- VOTAR ---");
+            System.out.println("\n--- VOTAR  ---");
             System.out.println("1. Votar por un candidato");
             System.out.println("2. Ver votos de candidatos");
-            System.out.println("0. Volver al menú principal");
+            System.out.println("0. Salir");
             System.out.print("Seleccione una opción: ");
             opcion2 = scanner.nextInt();
             System.out.println();
 
-            Votar obj6 = new Votar();
-
             switch (opcion2) {
                 case 1:
                     obj6.votar();
+                    System.out.println("Volviendo al menú");
                     break;
                 case 2:
-                    obj6.VotosTotales();
+                    scanner.nextInt(); ;
                     break;
                 case 0:
-                    System.out.println("Volviendo al menú principal...");
+                    System.out.println("Saliendo del programa");
                     break;
                 default:
                     System.out.println("Opción no válida");
@@ -81,5 +83,3 @@ public class App {
     }
 }
 }
-    
-    
