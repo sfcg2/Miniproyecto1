@@ -69,7 +69,7 @@ public class App {
                     System.out.println("Volviendo al menú");
                     break;
                 case 2:
-                    scanner.nextInt(); ;
+                    obj6.VotosTotales();
                     break;
                 case 0:
                     System.out.println("Saliendo del programa");
