@@ -3,16 +3,11 @@ public class Candidato extends Ciudadano {
     private String ideologia; 
     private String partido_P;
     private String promesas;
-    public int votos;
+    private int votos;
+    
  
 
-    public Candidato(){}; /*(String ideologia, PartidoPolitico partido_P, 
-    String nombre, String cedula, CiudadOrigen ciudad){
-        super(nombre, cedula, ciudad);
-        
-        this.ideologia = ideologia;
-        this.partido_P = partido_P;
-    }*/
+    public Candidato(){}; 
    
     public String getIdeologia() {
         return ideologia.toUpperCase();
@@ -68,14 +63,16 @@ public class Candidato extends Ciudadano {
         promesas = scanner.nextLine();
     }
 
-    public int getVotos(){
+    public void sumarVotos() {
+        votos++;
+        
+    }
+
+    public int getVotos() {
         return votos;
     }
 
-    public int sumarVotos(){
-        return votos + votos;
-    }
-    
+ 
   
     
     

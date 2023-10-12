@@ -38,6 +38,7 @@ public class Insertar {
                     for (CiudadOrigen cor : CiudadOrigen.values()) {
                         if (candidato.getCiudad().equalsIgnoreCase(cor.name())) {
                             val1 = true;
+                            cor.setCont();
                             break;
                         }
                     }
@@ -58,6 +59,7 @@ public class Insertar {
                             if (candidato.getPartido_P().equalsIgnoreCase(pd.name())) {
                                 val3 = true;
                                 candidato.setPromesas();
+                                pd.setSumaDr();
                                 inscritos.add(candidato);
                                 break;
                             }
@@ -72,6 +74,7 @@ public class Insertar {
                             if (candidato.getPartido_P().equalsIgnoreCase(pz.name())) {
                                 val3 = true;
                                 candidato.setPromesas();
+                                pz.setSumaIz();
                                 inscritos.add(candidato);
                                 break;
                             }

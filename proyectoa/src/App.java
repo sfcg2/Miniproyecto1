@@ -35,6 +35,8 @@ public class App {
                 Buscar obj4 = new Buscar();
                 ListaCandidatos obj5 = new ListaCandidatos();
                 Votar obj6  = new Votar();
+                PMasC obj7 = new PMasC();
+                Ciudadestop3 obj8 = new Ciudadestop3();
 
                 switch (opcion) {
 
@@ -44,7 +46,7 @@ public class App {
                     case 4: obj4.buscar();break;
                     case 5: obj5.listaCandidatos();break;
                     case 6: obj6.votar();break;
-                    case 0: break;
+                    case 0: obj7.pMasC();obj8.ciudadestop3();break;
                     default:
                         System.out.println("Opcion No Valida");
                         break;

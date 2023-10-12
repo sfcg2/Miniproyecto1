@@ -3,10 +3,10 @@ import java.util.Scanner;
 
 class Votar {
 
-     
-
     public void votar() {
+
         try (Scanner scanner = new Scanner(System.in)) {
+
             ArrayList<Candidato> listaCandidatos = Insertar.getInscritos();
 
             System.out.println("Número de candidatos inscritos: " + listaCandidatos.size());
@@ -32,8 +32,10 @@ class Votar {
             }
         }
     }
-
+    
+    /* 
     public void VotosTotales() {
+
         ArrayList<Candidato> listaCandidatos = Insertar.getInscritos();
 
         System.out.println("Votos para cada candidato:");
@@ -54,5 +56,5 @@ class Votar {
         } else {
             System.out.println("No hay candidatos registrados o no se han registrado votos.");
         }
-    }
+    }*/
 }
