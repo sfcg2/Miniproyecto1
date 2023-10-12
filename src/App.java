@@ -7,6 +7,7 @@ public class App {
         System.out.println("Hello, World!");
         try (Scanner scanner = new Scanner(System.in)) {
 
+
             //Menu    
             
             System.out.println( "                         - - - - E L E C C I O N E S - - - - \n");
@@ -21,9 +22,10 @@ public class App {
                 System.out.println("3. Eliminar Candidato");
                 System.out.println("4. Buscar Candidato");
                 System.out.println("5. Lista de Candidatos");
+                System.out.println("6. Votar");
                 System.out.println("0. No seguir haciendo CRUD");
 
-                System.out.print("Para incribir/modificar un candidato elija una opcion: ");
+                System.out.print("candidato elija una opcion: ");
                 opcion = scanner.nextInt();
                 System.out.println();
 
@@ -32,6 +34,7 @@ public class App {
                 Eliminar obj3 = new Eliminar();
                 Buscar obj4 = new Buscar();
                 ListaCandidatos obj5 = new ListaCandidatos();
+                Votar obj6  = new Votar();
 
                 switch (opcion) {
 
@@ -40,6 +43,7 @@ public class App {
                     case 3: obj3.eliminar();break;
                     case 4: obj4.buscar();break;
                     case 5: obj5.listaCandidatos();break;
+                    case 6: obj6.votar();break;
                     case 0: break;
                     default:
                         System.out.println("Opcion No Valida");

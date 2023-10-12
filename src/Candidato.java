@@ -70,5 +70,3 @@ public class Candidato extends Ciudadano {
     
     
 }
-
-
