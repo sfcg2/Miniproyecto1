@@ -34,5 +34,16 @@ public class Votar {
             }
         }
     }
+
+    public void VotosTotales() {
+        ArrayList<Candidato> listaCandidatos = Insertar.getInscritos();
+
+        System.out.println("Votos para cada candidato:");
+
+        for (Candidato candidato : listaCandidatos) {
+            System.out.println("Candidato: " + candidato.getNombre() + ", Votos: " + candidato.getVotos());
+        }
+    }
 }
+
 
