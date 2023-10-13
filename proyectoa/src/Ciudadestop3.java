@@ -14,7 +14,7 @@ public class Ciudadestop3{
         System.out.println("\n\n> TOP 3 DE CIUDADES CON MENOS CANDIDATOS\n");
 
         for(int i = 0; i<3; i++){
-            System.out.println(" " + (i+1) + ". " + listaCiudad[i] + " con " + listaCiudad[i].getCont() + " Candidato/s." + "\n");
+            System.out.println(" " + (i+1) + ". " + listaCiudad[i] + " con " + listaCiudad[i].getCont() + " Candidato/s." + "\n\n");
         }
 
         /*for(int i = listaCiudad.length - 1; i >= 40; i--){

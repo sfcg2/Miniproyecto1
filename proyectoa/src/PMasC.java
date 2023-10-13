@@ -6,8 +6,6 @@ public class PMasC{
 
     public void pMasC(){
 
-
-
         int contDr = 0;
         int contIz = 0;
 
@@ -25,7 +23,7 @@ public class PMasC{
 
             if (contDr > contIz){
 
-                System.out.println("\n\n> PARTIDO CON MAS CANDIDATOS -> Partido de Derecha\n");
+                System.out.println("\n> PARTIDO CON MAS CANDIDATOS -> Partido de Derecha\n");
                 System.out.println("  Con un Total de " + contDr + " Candidato/s.\n");
             }
 

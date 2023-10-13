@@ -5,8 +5,6 @@ public class Candidato extends Ciudadano {
     private String promesas;
     private int votos;
     
- 
-
     public Candidato(){}; 
    
     public String getIdeologia() {
@@ -58,6 +56,7 @@ public class Candidato extends Ciudadano {
     public String getPromesas() {
         return promesas.toUpperCase();
     }
+
     public void setPromesas() {
         System.out.print("Promesa: ");
         promesas = scanner.nextLine();
@@ -72,9 +71,4 @@ public class Candidato extends Ciudadano {
         return votos;
     }
 
- 
-  
-    
-    
-    
 }
