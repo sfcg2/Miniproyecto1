@@ -4,7 +4,7 @@ public class App {
 
     
     public static void main(String[] args) throws Exception {
-        System.out.println("Hello, World!");
+
         try (Scanner scanner = new Scanner(System.in)) {
 
 
@@ -22,64 +22,63 @@ public class App {
                 System.out.println("3. Eliminar Candidato");
                 System.out.println("4. Buscar Candidato");
                 System.out.println("5. Lista de Candidatos");
+                System.out.println("6. Votar");
+                System.out.println("7. Ver Votos Totales");
                 System.out.println("0. No seguir haciendo CRUD");
 
-                System.out.print("candidato elija una opcion: ");
+                System.out.print("Para inscribir/modificar un candidato elija una opcion: ");
                 opcion = scanner.nextInt();
                 System.out.println();
+                limpiarPantalla();
+                esperarSegundos(300);
 
                 Insertar obj1 = new Insertar();
                 Actualizar obj2 = new Actualizar();
                 Eliminar obj3 = new Eliminar();
                 Buscar obj4 = new Buscar();
                 ListaCandidatos obj5 = new ListaCandidatos();
-                
+                Votar obj6  = new Votar();
+                PMasC obj7 = new PMasC();
+                Ciudadestop3 obj8 = new Ciudadestop3();
 
                 switch (opcion) {
 
-                    case 1: obj1.insertar();break;
+                    case 1: System.out.println("\n[Ingrese 0 para salir]\n");obj1.insertar();
+                    esperarSegundos(330);limpiarPantalla();break;
                     case 2: obj2.actualizar();break;
                     case 3: obj3.eliminar();break;
                     case 4: obj4.buscar();break;
                     case 5: obj5.listaCandidatos();break;
-                    case 0: break;
+                    case 6: obj6.votar();break;
+                    case 7: obj6.VotosTotales();break;
+                    case 0: obj7.pMasC();obj8.ciudadestop3();break;
+
                     default:
                         System.out.println("Opcion No Valida");
                         break;
                 }
             }while(opcion!=0);
-
-
-        int opcion2;
-
-        Votar obj6 = new Votar();
-
-        do {
-            System.out.println("\n--- VOTAR  ---");
-            System.out.println("1. Votar por un candidato");
-            System.out.println("2. Ver votos de candidatos");
-            System.out.println("0. Salir");
-            System.out.print("Seleccione una opción: ");
-            opcion2 = scanner.nextInt();
-            System.out.println();
-
-            switch (opcion2) {
-                case 1:
-                    obj6.votar();
-                    System.out.println("Volviendo al menú");
-                    break;
-                case 2:
-                    obj6.VotosTotales();
-                    break;
-                case 0:
-                    System.out.println("Saliendo del programa");
-                    break;
-                default:
-                    System.out.println("Opción no válida");
-                    break;
-            }
-
-        } while (opcion2 != 0);
+        }
     }
+
+    public static void limpiarPantalla() {
+        try{ new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+    
+        }catch (Exception e){
+
+            e.printStackTrace();
+        }
+    }
+    public static void esperarSegundos(int sg) {
+        try {
+            Thread.sleep(sg); // Convierte segundos a milisegundos
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    
 }
-}
+
+    
+
+    

@@ -5,13 +5,11 @@ public class Ciudadano {
     private String nombre;
     private String cedula;
     private String ciudad;
+
     Scanner scanner = new Scanner(System.in);
 
-    public Ciudadano(){};/*(String nombre,String cedula, CiudadOrigen ciudad){
-        this.nombre = nombre;
-        this.cedula = cedula;
-        this.ciudad = ciudad;
-    }*/
+    public Ciudadano(){};
+
     public String getNombre (){
         return nombre;
     }
@@ -41,8 +39,5 @@ public class Ciudadano {
        
 
     }
-    
-
-    
     
 }
